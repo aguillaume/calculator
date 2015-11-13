@@ -1,0 +1,91 @@
+html {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+}
+
+sup {
+		vertical-align: super;
+		font-size: 60%;
+}
+
+.calculator {
+		margin: 50px auto;
+		width: 492px;
+		font-size: 0;
+}
+
+.top {
+		display: block;
+		background: #333;
+		padding: 5px;
+		padding-right: 20px;
+		text-align: right;
+		vertical-align: middle;
+		
+}
+
+.espression {
+    font-size: 16px;
+    color: #aaa;
+}
+
+.output {
+    font-size: 40px;
+    color: #eee;
+}
+
+.row {
+		display: block;
+		border-bottom: 1px solid #333;
+		border-left: 1px solid #333;
+}
+
+.b {
+		display: inline-block;
+		box-sizing: border-box;
+		width: 12.5%;
+		height: 60px;
+		font-size: 25px;
+		border-right: 1px solid #333;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 60px;
+}
+
+.zero {
+		width: 25%;
+}
+
+.operator {
+		background-color: #64f;
+		color: #eee;
+}
+
+.operator:active {
+		background-color: #60f;
+}
+
+.num,
+.decimalPoint {
+		background-color: #eee;
+		color: #333;
+}
+
+.num:active,
+.decimalPoint:active {
+		background-color: #bbb;
+}
+
+.option, .store, .val {
+		background-color: #bbb;
+		color: #333;
+}
+
+.option:active, .store:active, .val:active {
+		background-color: #888;
+}
+
+.store {
+		width: 37.5%;
+}
