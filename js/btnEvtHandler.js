@@ -93,7 +93,7 @@ function btnClicked(evt) {
         break;
     case 'factorial':
         console.log(evt);
-        //set(Math.PI);
+        factorial();
         break;
     case 'plusmn':
         console.log(evt);
@@ -115,22 +115,22 @@ function btnClicked(evt) {
         console.log(evt);
         square()
         break;
-		case 'roundUp':
-				console.log(evt);
-				roundUp()
-				break;
-		case 'roundDown':
-				console.log(evt);
-				//code goes here
-				break;
+    case 'roundUp':
+        console.log(evt);
+        roundUp();
+        break;
+    case 'roundDown':
+        console.log(evt);
+        roundDown();
+        break;
     case '.00':
-				console.log(evt);
-				//code goes here
-				break;
+        console.log(evt);
+        roundTwoDecimal();
+        break;
     case '.000':
-				console.log(evt);
-				//code goes here
-				break;
+        console.log(evt);
+        roundThreeDeciaml();
+        break;
     case 'storeA':
         console.log(evt);
         setAlpha(getOutput());
@@ -163,23 +163,23 @@ function btnClicked(evt) {
         console.log(evt);
         getDelta();
         break;
-		case 'TSCO':
-				console.log(evt);
-				//code goes here
-				break;
+    case 'TSCO':
+        console.log(evt);
+        //code goes here
+        break;
     case 'SBRY':
-				console.log(evt);
-				//code goes here
-				break;
+        console.log(evt);
+        //code goes here
+        break;
     case 'WMT':
-				console.log(evt);
-				//code goes here
-				break;
+        console.log(evt);
+        //code goes here
+        break;
     case 'MRW':
-				console.log(evt);
-				//code goes here
-				break;
-    
+        console.log(evt);
+        //code goes here
+        break;
+
     default:
         console.log("defult case: " + evt);
     }
