@@ -11,14 +11,14 @@
 </head>
 
 <body>
-    <div class="calculator">
+   <div class="calculator">
         <div class="top">
             <div class="espression">0</div>
             <div class="output">0</div>
         </div>
         <div class="buttons">
             <div class="row">
-                <div class="b option" onclick="btnClicked('pi');">&pi;</div>
+                <div class="b option" onclick="btnClicked('factorial');">x!</div>
                 <div class="b option" onclick="btnClicked('root');">&radic;x</div>
                 <div class="b option" onclick="btnClicked('cube');">x<sup>3</sup></div>
                 <div class="b option" onclick="btnClicked('square');">x<sup>2</sup></div>
@@ -28,32 +28,40 @@
                 <div class="b operator" onclick="btnClicked('divide');">&divide;</div>
             </div>
             <div class="row">
-                <div class="b store" onclick="btnClicked('storeA');">STORE &alpha;</div>
+                <div class="b option smallFont" onclick="btnClicked('TSCO');">TSCO</div>
+								<div class="b store smallFont" onclick="btnClicked('storeA');">M &alpha;</div>
                 <div class="b val" onclick="btnClicked('A');">&alpha;</div>
+								<div class="b option smallFont" onclick="btnClicked('roundUp');">&gt;&#8776;</div>
                 <div class="b num" onclick="btnClicked('7');">7</div>
                 <div class="b num" onclick="btnClicked('8');">8</div>
                 <div class="b num" onclick="btnClicked('9');">9</div>
                 <div class="b operator" onclick="btnClicked('multiply');">&times;</div>
             </div>
             <div class="row">
-                <div class="b store" onclick="btnClicked('storeB');">STORE &beta;</div>
+                <div class="b option smallFont" onclick="btnClicked('SBRY');">SBRY</div>
+                <div class="b store smallFont" onclick="btnClicked('storeB');">M &beta;</div>
                 <div class="b val" onclick="btnClicked('B');">&beta;</div>
+								<div class="b option smallFont" onclick="btnClicked('roundDown');">&lt;&#8776;</div>
                 <div class="b num" onclick="btnClicked('4');">4</div>
                 <div class="b num" onclick="btnClicked('5');">5</div>
                 <div class="b num" onclick="btnClicked('6');">6</div>
                 <div class="b operator" onclick="btnClicked('subtract');">-</div>
             </div>
-            <div class="row">                
-                <div class="b store" onclick="btnClicked('storeC');">STORE &gamma;</div>
+            <div class="row">          
+                <div class="b option smallFont" onclick="btnClicked('WMT');">WMT</div>
+                <div class="b store smallFont" onclick="btnClicked('storeC');">M &gamma;</div>
                 <div class="b val" onclick="btnClicked('G');">&gamma;</div>
+								<div class="b option smallFont" onclick="btnClicked('.00');">.00</div>
                 <div class="b num" onclick="btnClicked('1');">1</div>
                 <div class="b num" onclick="btnClicked('2');">2</div>
                 <div class="b num" onclick="btnClicked('3');">3</div>
                 <div class="b operator" onclick="btnClicked('add');">+</div>
             </div>
             <div class="row">
-                <div class="b store" onclick="btnClicked('storeD');">STORE &delta;</div>
+                <div class="b option smallFont" onclick="btnClicked('MRW');">MRW</div>
+                <div class="b store smallFont" onclick="btnClicked('storeD');">M &delta;</div>
                 <div class="b val" onclick="btnClicked('D');">&delta;</div>
+								<div class="b option smallFont" onclick="btnClicked('.000');">.000</div>
                 <div class="b num zero" onclick="btnClicked('0');">0</div>
                 <div class="b decimalPoint" onclick="btnClicked('dot');">.</div>
                 <div class="b operator" onclick="btnClicked('equals');">=</div>

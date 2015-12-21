@@ -1,3 +1,7 @@
+//
+// The handler
+//
+
 //set keyboard event listener
 $("html").keypress(function (evt) {
     //if enter is pressed, make it the same as equals.
@@ -87,9 +91,9 @@ function btnClicked(evt) {
         console.log(evt);
         solve();
         break;
-    case 'pi':
+    case 'factorial':
         console.log(evt);
-        set(Math.PI);
+        //set(Math.PI);
         break;
     case 'plusmn':
         console.log(evt);
@@ -111,6 +115,22 @@ function btnClicked(evt) {
         console.log(evt);
         square()
         break;
+		case 'roundUp':
+				console.log(evt);
+				roundUp()
+				break;
+		case 'roundDown':
+				console.log(evt);
+				//code goes here
+				break;
+    case '.00':
+				console.log(evt);
+				//code goes here
+				break;
+    case '.000':
+				console.log(evt);
+				//code goes here
+				break;
     case 'storeA':
         console.log(evt);
         setAlpha(getOutput());
@@ -143,6 +163,23 @@ function btnClicked(evt) {
         console.log(evt);
         getDelta();
         break;
+		case 'TSCO':
+				console.log(evt);
+				//code goes here
+				break;
+    case 'SBRY':
+				console.log(evt);
+				//code goes here
+				break;
+    case 'WMT':
+				console.log(evt);
+				//code goes here
+				break;
+    case 'MRW':
+				console.log(evt);
+				//code goes here
+				break;
+    
     default:
         console.log("defult case: " + evt);
     }
