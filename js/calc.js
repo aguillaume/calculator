@@ -4,6 +4,7 @@ var isNegative = false;
 var isOperator = false;
 var isSolved = false;
 var operatorOnce = false;
+var isStockPrice = false;
 
 var x1 = 0;
 var x2 = 0;
@@ -80,6 +81,7 @@ function clearOutput() {
     hasDecimal = false;
     isNegative = false;
     isOperator = false;
+    isStockPrice = false;
 }
 
 function clearEspression() {
@@ -93,7 +95,7 @@ function getAlpha() {
 
 function setAlpha(val) {
     alpha = val;
-    clearOutput();
+    clearAll();
 }
 
 function getBeta() {
@@ -103,7 +105,7 @@ function getBeta() {
 
 function setBeta(val) {
     beta = val;
-    clearOutput();
+    clearAll();
 }
 
 function getGamma() {
@@ -113,7 +115,7 @@ function getGamma() {
 
 function setGamma(val) {
     gamma = val;
-    clearOutput();
+    clearAll();
 }
 
 function getDelta() {
@@ -123,7 +125,7 @@ function getDelta() {
 
 function setDelta(val) {
     delta = val;
-    clearOutput();
+    clearAll();
 }
 
 function root() {
@@ -200,26 +202,27 @@ function roundDown() {
 
 function roundTwoDecimal() {
     var num = parseFloat(getOutput());
-    num = Math.ceil(num * 100) / 100;
+    num = Math.round(num * 100) / 100;
     setOutput(num);
     setEspression(num);
 }
 
 function roundThreeDeciaml() {
     var num = parseFloat(getOutput());
-    num = Math.ceil(num * 1000) / 1000;
+    num = Math.round(num * 1000) / 1000;
     setOutput(num);
     setEspression(num);
 }
 
-function factorial()
-{
-    if(hasDecimal) return setOutput("Error. Interger only.");
+function factorial() {
+    if (hasDecimal) {
+        isSolved = true;
+        return setOutput("Error. Interger only.");
+    }
     var num = parseInt(getOutput());
     if (num < 0) {
         return -1;
-    }
-    else if (num == 0) {
+    } else if (num == 0) {
         return 1;
     }
     var tmp = num;
@@ -240,6 +243,7 @@ function num(n) {
         clearOutput();
     }
     if (isSolved) clearAll();
+    if (isStockPrice) clearAll();
 
     if (getOutput() === '0' && n != '.') {
         //set the out put to that number
@@ -315,4 +319,20 @@ function solve() {
         break;
     }
     operatorOnce = false;
+}
+
+
+// Live call to Yahoo Finance API
+
+function liveStockPrice(symbol) {
+//    if (isStockPrice) clearAll();
+    var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%3D%22" + symbol + "%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+    var price;
+    $.getJSON(url, function (data) {
+        price = data.query.results.quote.Ask;
+        console.log(data.query.results.quote.Name);
+        setOutput(price.toString());
+        (getEspression().length > 1) ? appendEspression(price.toString()): setEspression(price.toString());
+    });
+    isStockPrice = true;
 }

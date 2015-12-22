@@ -165,19 +165,19 @@ function btnClicked(evt) {
         break;
     case 'TSCO':
         console.log(evt);
-        //code goes here
+        liveStockPrice("TSCO.L");
         break;
     case 'SBRY':
         console.log(evt);
-        //code goes here
+        liveStockPrice("SBRY.L");
         break;
     case 'WMT':
         console.log(evt);
-        //code goes here
+        liveStockPrice("WMT");
         break;
     case 'MRW':
         console.log(evt);
-        //code goes here
+        liveStockPrice("MRW.L");
         break;
 
     default:
