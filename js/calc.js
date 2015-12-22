@@ -5,6 +5,7 @@ var isOperator = false;
 var isSolved = false;
 var operatorOnce = false;
 var isStockPrice = false;
+var lastEspressionInput;
 
 var x1 = 0;
 var x2 = 0;
@@ -29,10 +30,12 @@ function getEspression() {
 
 function setEspression(esp) {
     $(".espression").html(esp.toString());
+    lastEspressionInput = esp;
 }
 
 function appendEspression(esp) {
     setEspression(getEspression() + esp);
+    lastEspressionInput = esp;
 }
 
 function replaceEndEsp(esp, len) {
@@ -261,6 +264,7 @@ function operator(op) {
     if (isSolved) {
         setEspression(getOutput());
         isSolved = false;
+        isOperator = false;
     }
 
     //write the correct statement
@@ -278,6 +282,7 @@ function operator(op) {
     //clearOutput();
     isOperator = true;
     operatorOnce = true;
+    isStockPrice = false;
 }
 
 function solve() {
@@ -325,14 +330,22 @@ function solve() {
 // Live call to Yahoo Finance API
 
 function liveStockPrice(symbol) {
-//    if (isStockPrice) clearAll();
     var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%3D%22" + symbol + "%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
     var price;
     $.getJSON(url, function (data) {
         price = data.query.results.quote.Ask;
-        console.log(data.query.results.quote.Name);
         setOutput(price.toString());
-        (getEspression().length > 1) ? appendEspression(price.toString()): setEspression(price.toString());
+        if (getEspression().length > 1) {
+            if(isStockPrice) {
+                setEspression(getEspression().slice(0, getEspression().length - lastEspressionInput.length) + price.toString());
+                
+            }else{
+                appendEspression(price.toString());
+            }
+        } else {
+            setEspression(price.toString());
+        }
+        isStockPrice = true;
     });
-    isStockPrice = true;
+    
 }
